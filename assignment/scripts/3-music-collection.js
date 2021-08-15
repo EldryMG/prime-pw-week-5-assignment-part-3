@@ -2,15 +2,17 @@ console.log('***** Music Collection *****')
 let collection = [];
 let album = {}
 
-function addToCollection(title, artist, yearPublished) {
+function addToCollection(title, artist, yearPublished, trackName, duration) {
   album = {
     title: title,
     artist: artist,
-    yearPublished: yearPublished
+    yearPublished: yearPublished,
+    tracks: [trackName , duration]
   };
-  collection.push(album);
+  collection.push(album)
   return album;
 }
+
 
 //Sad to say I was lost and looked at the messages on Slack to figure this part out.  Once I saw what others had done, it was difficult not to copy.
 //At least I'm happy that I understand the logic behind it, so I can say I've learned something.
@@ -18,13 +20,14 @@ function addToCollection(title, artist, yearPublished) {
 
 
 // Console.log each album as added using the returned value.
-console.log('Added:', addToCollection('EP', 'Sublime', 1996));
+console.log('Added:', addToCollection('EP', 'Sublime', 1997, `Garden Grove`, `2:00`));
 console.log('Added:', addToCollection('White Pony', 'Deftones', 2001));
 console.log('Added:', addToCollection('Core', 'Stone Temple Pilots', 1994));
 console.log('Added:', addToCollection('Untitled', 'Aim To Head Music', 2020));
 console.log('Added:', addToCollection('Untitled', 'Bachelors of Science', 2012));
 console.log('Added:', addToCollection('YouTube', 'Deftones', 2018));
-console.log(collection);
+// console.log(collection[`0`]['tracks']);
+
 
 
 function showCollection(array) {
@@ -34,7 +37,7 @@ function showCollection(array) {
   };
 }
 
-showCollection(collection);
+// showCollection(collection);
 
 
 let results = []
@@ -87,5 +90,7 @@ function search(artist, year) {
     } else {
       console.log(`Match not found.`)
     }
-  } return newArray;
+  } return newArray; //
 }
+
+search('Deftones', 2001);
