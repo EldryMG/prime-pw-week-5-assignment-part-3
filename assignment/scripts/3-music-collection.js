@@ -1,13 +1,19 @@
 console.log('***** Music Collection *****')
+// In the middle of stretch goals, ran out of time; I hope my assignments aren't too much of a mess, I've seen others' that are more organized.
 let collection = [];
 let album = {}
 
-function addToCollection(title, artist, yearPublished, trackName, duration) {
+function addTracks (trackName, duration){
+  collection.push(album.artist)
+
+}
+
+function addToCollection(title, artist, yearPublished, tracks) {
   album = {
     title: title,
     artist: artist,
     yearPublished: yearPublished,
-    tracks: [trackName , duration]
+    tracks: tracks
   };
   collection.push(album)
   return album;
@@ -18,15 +24,17 @@ function addToCollection(title, artist, yearPublished, trackName, duration) {
 //At least I'm happy that I understand the logic behind it, so I can say I've learned something.
 //My original idea did not have the function create the object, only push an object into the array.
 
+//I wanted to be able to push each Track name and duration into the property array of the object.  How would you do this quickly?
 
-// Console.log each album as added using the returned value.
-console.log('Added:', addToCollection('EP', 'Sublime', 1997, `Garden Grove`, `2:00`));
-console.log('Added:', addToCollection('White Pony', 'Deftones', 2001));
-console.log('Added:', addToCollection('Core', 'Stone Temple Pilots', 1994));
+
+console.log('Added:', addToCollection('EP', 'Sublime', 1997, [["Garden Grove, 2:00"], ["Wrong Way, 3:00"], ["Santaria, 4:00"]]));
+console.log('Added:', addToCollection('White Pony', 'Deftones', 2001, [ ["Feiticeira, 3:10"], ["Elite, 4:02"], ["Street Carp, 2:42"] ]));
+console.log('Added:', addToCollection('Core', 'Stone Temple Pilots', 1994, [  []  ]));
 console.log('Added:', addToCollection('Untitled', 'Aim To Head Music', 2020));
 console.log('Added:', addToCollection('Untitled', 'Bachelors of Science', 2012));
-console.log('Added:', addToCollection('YouTube', 'Deftones', 2018));
-// console.log(collection[`0`]['tracks']);
+console.log('Added:', addToCollection('YouTube', 'Deftones', 2001));
+console.log(collection);
+
 
 
 
@@ -37,7 +45,7 @@ function showCollection(array) {
   };
 }
 
-// showCollection(collection);
+showCollection(collection);
 
 
 let results = []
@@ -84,13 +92,13 @@ let newArray = [];
 function search(artist, year) {
   for (i = 0; i < collection.length; i++) {
     if (artist === collection[i].artist && collection[i].yearPublished === year){
-      // console.log(collection[i]);
+// console.log(collection[i]); I test everything like this. If it works, I do progressively more complex code until I get the result the assignment asks for.
       newArray.push(collection[i]);
 
     } else {
       console.log(`Match not found.`)
     }
-  } return newArray; //
+  } console.log(newArray);
 }
 
-search('Deftones', 2001);
+search('Sublime', 1997);
